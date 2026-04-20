@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">跟着减</string>
+    <string name="app_description">有氧减脂语音私教APP</string>
+    
+    <!-- 权限请求提示 -->
+    <string name="location_permission_title">位置权限</string>
+    <string name="location_permission_message">需要位置权限来记录运动轨迹和距离计算</string>
+    
+    <string name="bluetooth_permission_title">蓝牙权限</string>
+    <string name="bluetooth_permission_message">需要蓝牙权限来连接心率监测设备</string>
+    
+    <string name="microphone_permission_title">麦克风权限</string>
+    <string name="microphone_permission_message">需要麦克风权限来支持语音交互功能</string>
+    
+    <!-- 通知渠道 -->
+    <string name="location_service_channel">位置服务</string>
+    <string name="audio_service_channel">音频服务</string>
+    <string name="workout_notification_channel">运动通知</string>
+    <string name="heart_rate_channel">心率监测</string>
+    
+    <!-- 通知内容 -->
+    <string name="workout_started_title">运动已开始</string>
+    <string name="workout_started_content">正在记录您的运动轨迹和心率数据</string>
+    
+    <string name="workout_paused_title">运动已暂停</string>
+    <string name="workout_paused_content">点击继续恢复运动</string>
+    
+    <string name="heart_rate_warning_title">心率异常提醒</string>
+    <string name="heart_rate_warning_content">您的心率已超出安全范围，请调整运动强度</string>
+    
+    <!-- 语音提示 -->
+    <string name="voice_warm_up">准备开始热身运动</string>
+    <string name="voice_start_workout">运动开始，保持呼吸节奏</string>
+    <string name="voice_keep_going">继续坚持，您做得很好</string>
+    <string name="voice_slow_down">心率偏高，建议降低速度</string>
+    <string name="voice_completed">恭喜您完成本次运动</string>
+</resources>
