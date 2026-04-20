@@ -1,0 +1,21 @@
+<resources>
+    <color name="primaryColor">#FF4CAF50</color>
+    <color name="primaryDarkColor">#FF388E3C</color>
+    <color name="accentColor">#FFFF9800</color>
+    
+    <color name="background">#FFF5F5F5</color>
+    <color name="surface">#FFFFFFFF</color>
+    
+    <color name="textPrimary">#FF212121</color>
+    <color name="textSecondary">#FF757575</color>
+    <color name="textHint">#FFBDBDBD</color>
+    
+    <color name="success">#FF4CAF50</color>
+    <color name="warning">#FFFF9800</color>
+    <color name="error">#FFF44336</color>
+    <color name="info">#FF2196F3</color>
+    
+    <color name="heartRateLow">#FF4CAF50</color>
+    <color name="heartRateNormal">#FF2196F3</color>
+    <color name="heartRateHigh">#FFF44336</color>
+</resources>
