@@ -1,0 +1,59 @@
+# Codemagic CI/CD Configuration for Follow Fit App
+# GitHub仓库连接后，自动构建Android APK
+
+workflows:
+  android-workflow:
+    name: Follow Fit Android Build
+    max_build_duration: 60
+    instance_type: mac_mini_m1
+    environment:
+      groups:
+        - google_play # 需要添加Google Play凭据(可选)
+      vars:
+        PROJECT_DIR: "."
+        PACKAGE_NAME: "com.follow.fit"
+        CM_KEYSTORE_PATH: "$CM_BUILD_DIR/keystore.jks"
+        CM_KEYSTORE: $CM_KEYSTORE
+        CM_KEYSTORE_PASSWORD: $CM_KEYSTORE_PASSWORD
+        CM_KEY_ALIAS: $CM_KEY_ALIAS
+        CM_KEY_PASSWORD: $CM_KEY_PASSWORD
+      flutter: stable
+      xcode: latest
+      cocoapods: default
+      ndk: r23c
+    scripts:
+      - name: Setup Flutter
+        script: |
+          flutter --version
+          flutter pub get
+          
+      - name: Build Android APK
+        script: |
+          flutter build apk --release --split-per-abi
+          
+      - name: Build Android App Bundle (AAB)
+        script: |
+          flutter build appbundle --release
+          
+      - name: Sign APK (可选)
+        script: |
+          if [ -n "$CM_KEYSTORE" ]; then
+            jarsigner -verbose -sigalg SHA256withRSA -digestalg SHA-256 \
+              -keystore $CM_KEYSTORE_PATH \
+              -storepass $CM_KEYSTORE_PASSWORD \
+              -keypass $CM_KEY_PASSWORD \
+              build/app/outputs/flutter-apk/app-release.apk \
+              $CM_KEY_ALIAS
+          fi
+    artifacts:
+      - build/app/outputs/flutter-apk/**/*.apk
+      - build/app/outputs/bundle/**/*.aab
+      - build/ios/ipa/*.ipa
+    publishing:
+      email:
+        recipients:
+          - user@example.com # 替换为你的邮箱
+      slack:
+        channel: '#builds'
+        notify_on_build_start: true
+        notify: always
